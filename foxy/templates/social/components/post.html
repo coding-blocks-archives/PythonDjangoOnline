@@ -1,0 +1,36 @@
+<div class="card">
+  <div class="card-image">
+    {% if post.image %}
+      <img src="/media/{{ post.image }}" style="width:25%">
+    {% endif %}
+  </div>
+  <div class="card-content">
+    <span class="card-title">{{ post.user.first_name }} {{ post.user.last_name }}</span>
+    <span>{{ post.created_at }}</span>
+    <p>
+      {{ post.content }}
+    </p>
+  </div>
+  <div class="card-action">
+    <a href="#" onclick="likePost({{post.id}})">{{ post.like_set.count }} Likes</a>
+    <a class="modal-trigger" href="#postModal{{post.id}}">{{ post.comment_set.count }} Comments</a>
+  </div>
+</div>
+
+<div id="postModal{{post.id}}" class="modal">
+  <div class="modal-content">
+    <h4>Comments</h4>
+    <ul>
+      {% for comment in post.comment_set.all %}
+        <li>{{ comment.user.first_name }} - {{ comment.content }}</li>
+      {% endfor %}
+    </ul>
+    <form onsubmit="commentPost({{post.id}}, document.getElementById('comment{{post.id}}').value);">
+      <div class="input-field">
+        <input id="comment{{post.id}}" type="text" class="validate">
+        <label for="comment{{post.id}}">Comment</label>
+        <button type="submit" class="btn waves-effect">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>

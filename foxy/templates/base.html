@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foxy</title>
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    {% block head %} {% endblock %}
+  </head>
+  <body>
+    <nav style="margin-bottom: 1.5rem;">
+      <div class="nav-wrapper">
+        <a href="/" class="brand-logo">Foxy</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          {% if user.is_authenticated %}
+            <li><a href="/home">Hello, {{ user.first_name }} {{ user.last_name }}</a></li>
+            <li><a href="/auth/logout">Logout</a></li>
+          {% else %}
+            <li><a href="/auth/login">Login</a></li>
+          {% endif %}
+        </ul>
+      </div>
+    </nav>
+
+    {% block content %} {% endblock %}
+
+    {% block footer %} {% endblock %}
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="/static/social/social.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          var elems = document.querySelectorAll('.modal');
+          var instances = M.Modal.init(elems, {});
+        });
+    </script>
+  </body>
+</html>

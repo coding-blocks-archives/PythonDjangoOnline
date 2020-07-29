@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container">
+    <h3>Wall</h3>
+    {% for post in posts %}
+      <div class="row">
+        <div class="col s12">
+          {% include 'social/components/post.html' %}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+{% endblock %}

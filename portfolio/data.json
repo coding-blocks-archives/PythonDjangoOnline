@@ -1,0 +1,15 @@
+{
+  "NAME": "Jatin Katyal",
+  "ABOUT_ME": "Python Mentor and Developer at Coding Blocks 😎. Jatin has worked with various start-ups in the field of HCI and IoT. He has won more than 10 hackathons including Microsoft campus Hack, TATA Crucible Hackathon, and Angel Hack.",
+  "LANGUAGES": [
+      "Python",
+      "JavaScript",
+      "GOLang",
+      "C++"
+  ],
+  "PROJECTS": [
+          ["filter_drama", "Google", "Google is an amazing search engine"],
+          ["place", "Youtube", "The best video sharing platform"],
+          ["whatshot", "GMail", "You all know what this is! 😂"]
+  ]
+}
